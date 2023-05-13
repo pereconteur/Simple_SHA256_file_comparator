@@ -48,7 +48,11 @@ or, click [here](https://github.com/pereconteur/Simple_SHA256_file_comparator/ar
 Just run : 
 
 ```
+#In 🏴󠁧󠁢󠁥󠁮󠁧󠁿
 ./comparator_sha256_mac.sh
+
+#in 🇫🇷
+./comparator_sha256_mac_fr.sh
 ```
 
 And let us guide you by answering the questions asked !
