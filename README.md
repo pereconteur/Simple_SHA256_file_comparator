@@ -28,9 +28,11 @@ This is simply a bash script that allows you to compare the sha256 of two files 
 
 ### How does it work❓
 
-You will run the script. Once it's done you will enter the ***absolute or relative path*** of the first file, then the second. 
+Once the script is launched you have 3 options: 
 
-After that you will have the answer of the correspondence between these two files.
+- You can look at the sha265 of a file
+- You can compare the sha256 between two files
+- You can compare the sha256 between: a sha256 or a file
 
 ## Get started 🚀
 
