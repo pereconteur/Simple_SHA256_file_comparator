@@ -21,8 +21,8 @@ This is simply a bash script that allows you to compare the sha256 of two files 
         <li><a href="#linux">Linux</a></li>
       </ul>
     </li>
-    <li><a href="#follow-me">Follow ME ✅</a></li>
-    <li><a href="#about-the-repo">About the repo ⚙️</a></li>
+    <li><a href="#follow-me-">Follow ME ✅</a></li>
+    <li><a href="#about-the-repo-">About the repo ⚙️</a></li>
   </ol>
 </details>
 
