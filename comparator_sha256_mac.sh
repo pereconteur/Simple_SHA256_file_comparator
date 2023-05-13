@@ -40,6 +40,14 @@ function compare_hashes() {
     echo
 }
 
+function sha256sum_file {
+    local file="$1"
+    if [ -f "$file" ]; then
+        shasum -a 256 "$file" | cut -d' ' -f1
+    fi
+}
+
+
 echo "What do you want to do?"
 echo "1. Verify the hash of a single file"
 echo "2. Compare two files"
@@ -50,18 +58,18 @@ read -r choice
 case "$choice" in
   1)
     echo "Enter the path of the file you want to check the hash of:"
-    read -r file
-    hash=$(sha256sum_file "$file")
+    read file_path
+    hash=$(sha256sum_file "$file_path")
     echo_green "The hash of the file is: $hash"
     ;;
   2)
     echo "Enter the path of the first file:"
-    read -r file1
-    hash1=$(shasum -a 256 "$file1" | cut -d' ' -f1)
+    read file_path1
+    hash1=$(sha256sum_file "$file_path1")
 
     echo "Enter the path of the second file:"
-    read -r file2
-    hash2=$(shasum -a 256 "$file2" | cut -d' ' -f1)
+    read file_path2
+    hash2=$(sha256sum_file "$file_path2")
 
     if [[ "$hash1" == "$hash2" ]]; then
       echo -e "\033[32mThe two files are identical.\033[0m"
@@ -77,7 +85,7 @@ case "$choice" in
     read -r choice1
     if [ "$choice1" = "P" ] || [ "$choice1" = "p" ]; then
       echo "Enter the path of the first file:"
-      read -r file1
+      read file1
       hash1=$(sha256sum_file "$file1")
     elif [ "$choice1" = "H" ] || [ "$choice1" = "h" ]; then
       echo "Enter the hash of the first file:"
@@ -91,7 +99,7 @@ case "$choice" in
     read -r choice2
     if [ "$choice2" = "P" ] || [ "$choice2" = "p" ]; then
       echo "Enter the path of the second file:"
-      read -r file2
+      read file2
       hash2=$(sha256sum_file "$file2")
     elif [ "$choice2" = "H" ] || [ "$choice2" = "h" ]; then
       echo "Enter the hash of the second file :"

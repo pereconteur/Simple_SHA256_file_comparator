@@ -1,27 +1,27 @@
 #!/bin/bash
 
-# Fonction pour afficher un message en vert
+# Function to print a message in green
 function echo_green {
   echo -e "\033[32m$1\033[0m"
 }
 
-# Fonction pour afficher un message en rouge
+# Function to print a message in red
 function echo_red {
   echo -e "\033[31m$1\033[0m"
 }
 
-# Fonction pour calculer le hash SHA256 d'un fichier
+# Function to calculate the SHA256 hash of a file
 function sha256sum_file {
   local file="$1"
-    openssl dgst -sha256 "$file" | cut -d ' ' -f 2
+  openssl dgst -sha256 "$file" | cut -d ' ' -f 2
 }
 
-# Fonction pour comparer deux hash
+# Function to compare two hashes
 function compare_hash {
   if [ "$1" = "$2" ]; then
-    echo_green "Les hash sont identiques"
+    echo_green "Les hashs sont identiques"
   else
-    echo_red "Les hash sont différents"
+    echo_red "Les hashs sont différents"
   fi
 }
 
@@ -40,64 +40,72 @@ function compare_hashes() {
     echo
 }
 
+function sha256sum_file {
+    local file="$1"
+    if [ -f "$file" ]; then
+        shasum -a 256 "$file" | cut -d' ' -f1
+    fi
+}
+
+
 echo "Que voulez-vous faire ?"
-echo "1. Vérifier le hash d'un seul fichier"
-echo "2. Comparer deux fichiers entre eux"
-echo "3. Comparer un fichier avec un hash"
+echo "1. Vérifier le hachage d'un seul fichier"
+echo "2. Comparer deux fichiers"
+echo "3. Comparer un fichier avec un hachage"
 
-read -r choix
+read -r choice
 
-case "$choix" in
+case "$choice" in
   1)
-    echo "Entrez le chemin du fichier dont vous voulez vérifier le hash :"
-    read -r fichier
-    hash=$(sha256sum_file "$fichier")
-    echo_green "Le hash du fichier est : $hash"
+    echo "Saisissez le chemin d'accès du fichier dont vous souhaitez vérifier le hachage :"
+    read file_path
+    hash=$(sha256sum_file "$file_path")
+    echo_green "Le hachage du fichier est le suivant : $hash"
     ;;
   2)
-    echo "Entrez le chemin du premier fichier :"
-        read -r fichier1
-        hash1=$(shasum -a 256 "$fichier1" | cut -d' ' -f1)
+    echo "Saisissez le chemin d'accès du premier fichier :"
+    read file_path1
+    hash1=$(sha256sum_file "$file_path1")
 
-        echo "Entrez le chemin du deuxième fichier :"
-        read -r fichier2
-        hash2=$(shasum -a 256 "$fichier2" | cut -d' ' -f1)
+    echo "Saisissez le chemin d'accès du deuxième fichier :"
+    read file_path2
+    hash2=$(sha256sum_file "$file_path2")
 
-        if [[ "$hash1" == "$hash2" ]]; then
-            echo -e "\033[32mLes deux fichiers sont identiques.\033[0m"
-            echo -e "\033[32m$hash1\033[0m"
-        else
-            echo -e "\033[31mLes deux fichiers sont différents : \033[0m"
-            compare_hashes "$hash1" "$hash2"
-            compare_hashes "$hash2" "$hash1"
-        fi
-        ;;
+    if [[ "$hash1" == "$hash2" ]]; then
+      echo -e "\033[32mLes deux fichiers sont identiques.\033[0m"
+      echo -e "\033[32m$hash1\033[0m"
+    else
+      echo -e "\033[31mLes deux fichiers sont différents : \033[0m"
+      compare_hashes "$hash1" "$hash2"
+      compare_hashes "$hash2" "$hash1"
+    fi
+    ;;
   3)
-    echo "Pour le premier fichier, voulez-vous entrer le chemin (C) ou le hash (H) ?"
-    read -r choix1
-    if [ "$choix1" = "C" ]; then
-      echo "Entrez le chemin du premier fichier :"
-      read -r fichier1
-      hash1=$(sha256sum_file "$fichier1")
-    elif [ "$choix1" = "H" ]; then
-      echo "Entrez le hash du premier fichier :"
+    echo "Pour le premier fichier, voulez-vous saisir le chemin (C) ou le hachage (H) ?"
+    read -r choice1
+    if [ "$choice1" = "P" ] || [ "$choice1" = "p" ]; then
+      echo "Saisissez le chemin d'accès du premier fichier :"
+      read file1
+      hash1=$(sha256sum_file "$file1")
+    elif [ "$choice1" = "C" ] || [ "$choice1" = "c" ]; then
+      echo "Saisissez le hachage du premier fichier :"
       read -r hash1
     else
-      echo_red "Choix invalide"
+      echo_red "Invalid choice"
       exit 1
     fi
 
-    echo "Pour le deuxième fichier, voulez-vous entrer le chemin (C) ou le hash (H) ?"
-    read -r choix2
-    if [ "$choix2" = "C" ]; then
-      echo "Entrez le chemin du deuxième fichier :"
-      read -r fichier2
-      hash2=$(sha256sum_file "$fichier2")
-    elif [ "$choix2" = "H" ]; then
-      echo "Entrez le hash du deuxième fichier :"
+    echo "Pour le deuxième fichier, voulez-vous saisir le chemin (C) ou le hachage (H) ?"
+    read -r choice2
+    if [ "$choice2" = "P" ] || [ "$choice2" = "p" ]; then
+      echo "Saisissez le chemin d'accès du deuxième fichier :"
+      read file2
+      hash2=$(sha256sum_file "$file2")
+    elif [ "$choice2" = "C" ] || [ "$choice2" = "c" ]; then
+      echo "Saisissez le chemin d'accès du deuxième fichier :"
       read -r hash2
     else
-      echo_red "Choix invalide"
+      echo_red "Choix non valide"
       exit 1
     fi
 
@@ -106,7 +114,7 @@ case "$choix" in
     compare_hashes "$hash2" "$hash1"
     ;;
   *)
-    echo_red "Choix invalide"
+    echo_red "Choix non valide"
     exit 1
     ;;
 esac
