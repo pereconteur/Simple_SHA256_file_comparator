@@ -97,4 +97,4 @@ For support, join the [Discord channel](https://discord.gg/xY63gyVfaR)
 
 ##### Doc
 
-- ![lowqualitybot]https://github.com/facebookresearch/llama/pull/87#issuecomment-1454237673
+- [lowqualitybot](https://github.com/facebookresearch/llama/pull/87#issuecomment-1454237673)
