@@ -11,27 +11,51 @@ This is simply a bash script that allows you to compare the sha256 of two files 
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#how-does-the-bash-script-work">How does the bash script work?</a>
+      <a href="#how-does-it-work-">How does it work❓</a>
     </li>
     <li>
-      <a href="#first-">First 🚀</a>
+      <a href="#get-started-">Get started 🚀</a>
       <ul>
-        <li><a href="#macos">Mac/OS</a></li>
-        <li><a href="#">Windows</a></li>
-        <li><a href="#">Linux</a></li>
+        <li><a href="#mac">Mac</a></li>
+        <li><a href="#windows">Windows</a></li>
+        <li><a href="#linux">Linux</a></li>
       </ul>
     </li>
-    <li><a href="#infos">Infos</a></li>
-    <li><a href="#follow-me">Follow ME</a></li>
-    <li><a href="#about-the-repo">About the repo</a></li>
+    <li><a href="#follow-me">Follow ME ✅</a></li>
+    <li><a href="#about-the-repo">About the repo ⚙️</a></li>
   </ol>
 </details>
 
+### How does it work❓
+
+You will run the script. Once it's done you will enter the ***absolute or relative path*** of the first file, then the second. 
+
+After that you will have the answer of the correspondence between these two files.
+
+## Get started 🚀
+
+```
+git clone https://github.com/pereconteur/Simple_SHA256_file_comparator
+```
+
+## Mac
+
+Just run : 
+
+```
+./comparator_sha256_mac.sh
+```
+
+Once this is done you will enter the ***absolute or relative path*** of the first file, then the second. 
+
+After that you will have the answer of the correspondence between these two files.
 
 
+## Windows
+## Linux
 
 
-## Follow ME
+## Follow ME ✅
 
 [![youtube](https://img.shields.io/youtube/channel/subscribers/UC5XJLz-Gnv8_T61wMXu-K-A?label=PereConteur&style=social)](https://www.youtube.com/channel/UC5XJLz-Gnv8_T61wMXu-K-A)
 
@@ -40,7 +64,7 @@ This is simply a bash script that allows you to compare the sha256 of two files 
 
 [![twitch](https://img.shields.io/twitch/status/pereconteur?label=PereConteur&style=social)](https://www.twitch.tv/pereconteur)
 
-#### About the repo
+#### About the repo ⚙️
 
  - ![](https://img.shields.io/github/repo-size/pereconteur/Simple_SHA256_file_comparator)
  - ![](https://img.shields.io/github/last-commit/pereconteur/Simple_SHA256_file_comparator)
