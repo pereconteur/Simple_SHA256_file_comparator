@@ -22,6 +22,7 @@ This is simply a bash script that allows you to compare the sha256 of two files 
       </ul>
     </li>
     <li><a href="#follow-me-">Follow ME ✅</a></li>
+    <li><a href="#support">Support</a></li>
     <li><a href="#about-the-repo-">About the repo ⚙️</a></li>
   </ol>
 </details>
@@ -50,14 +51,26 @@ Just run :
 ./comparator_sha256_mac.sh
 ```
 
-Once this is done you will enter the ***absolute or relative path*** of the first file, then the second. 
-
-After that you will have the answer of the correspondence between these two files.
-
+And let us guide you by answering the questions asked !
 
 ## Windows
+
+Just run : 
+
+```
+
+```
+
+And let us guide you by answering the questions asked !
+
 ## Linux
 
+Just run : 
+
+```
+```
+
+And let us guide you by answering the questions asked !
 
 ## Follow ME ✅
 
@@ -67,6 +80,10 @@ After that you will have the answer of the correspondence between these two file
 
 
 [![twitch](https://img.shields.io/twitch/status/pereconteur?label=PereConteur&style=social)](https://www.twitch.tv/pereconteur)
+
+#### Support
+
+For support, join the [Discord channel](https://discord.gg/xY63gyVfaR)
 
 #### About the repo ⚙️
 
