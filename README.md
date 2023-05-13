@@ -93,3 +93,8 @@ For support, join the [Discord channel](https://discord.gg/xY63gyVfaR)
 
  - ![](https://img.shields.io/github/repo-size/pereconteur/Simple_SHA256_file_comparator)
  - ![](https://img.shields.io/github/last-commit/pereconteur/Simple_SHA256_file_comparator)
+
+
+##### Doc
+
+- ![lowqualitybot]https://github.com/facebookresearch/llama/pull/87#issuecomment-1454237673
