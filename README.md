@@ -37,6 +37,7 @@ After that you will have the answer of the correspondence between these two file
 ```
 git clone https://github.com/pereconteur/Simple_SHA256_file_comparator
 ```
+or, click [here](https://github.com/pereconteur/Simple_SHA256_file_comparator/archive/refs/heads/main.zip)
 
 ## Mac
 
