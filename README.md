@@ -1,5 +1,5 @@
 # Simple_SHA256_file_comparator
-This is simply a bash script that allows you to compare the sha256 of two files and find out if they are different or identical.
+This is simply a script that allows you to compare the sha256 of two files and find out if they are different or identical.
 
 ![macOS](https://img.shields.io/badge/-macOS-%23999999?style=flat-square&logo=macos&logoColor=white) 
 ![Linux](https://img.shields.io/badge/-Linux-%23FCC624?style=flat-square&logo=linux&logoColor=white)
