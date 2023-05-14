@@ -47,7 +47,7 @@ or, click [here](https://github.com/pereconteur/Simple_SHA256_file_comparator/ar
 
 After cloning the repository, you have two options:
 
-### With Python
+### 1. With Python
 
 If you have [Python](https://www.python.org/downloads/release/python-31011/), you can run the python file with this command : 
 
@@ -59,7 +59,7 @@ python comparator_sha256.py
 python comparator_sha256_fr.py
 ```
 
-### With Bash
+### 2. With Bash
 
 Or, run this command (once in the folder) to make the bash files executable :
 
@@ -98,7 +98,7 @@ And let us guide you by answering the questions asked !
 
 After cloning the repository, you have two options:
 
-### With Python
+### 1. With Python
 
 If you have [Python](https://doc.ubuntu-fr.org/python#installation), you can run the python file with this command : 
 
@@ -110,7 +110,7 @@ python comparator_sha256.py
 python comparator_sha256_fr.py
 ```
 
-### With Bash
+### 2. With Bash
 
 Or, run this command (once in the folder) to make the bash files executable :
 
