@@ -1,6 +1,6 @@
 import hashlib
 import os
-
+import platform
 
 # Function to print a message in green
 def echo_green(msg):
@@ -50,6 +50,11 @@ def get_file_path():
     while True:
         file_path = input()
         file_path = file_path.strip()  # Supprimer les espaces de début et de fin
+        if platform.system() == 'Windows':
+            file_path = file_path.replace("/", "\\")  # Replace forward slashes with backslashes
+        else:
+            file_path = file_path.replace("\\", "")  # Supprimer les backslashes inutiles
+
         file_path = file_path.replace("\\", "")  # Supprimer les backslashes inutiles
 
         if os.path.isfile(file_path):
