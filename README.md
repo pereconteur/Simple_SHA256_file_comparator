@@ -66,7 +66,7 @@ And let us guide you by answering the questions asked !
 
 ## Windows
 
-You must have [python](https://www.python.org/downloads/release/python-31011/)
+You must have [Python](https://www.python.org/downloads/release/python-31011/)
 
 Once you have it, install colorama : 
 
@@ -77,7 +77,11 @@ pip install colorama
 and run the file : 
 
 ```bash
+# 🏴󠁧󠁢󠁥󠁮󠁧󠁿 Version
 python comparator_sha256.py
+
+# 🇫🇷 Version
+python comparator_sha256_fr.py
 ```
 
 And let us guide you by answering the questions asked !
