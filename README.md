@@ -45,20 +45,32 @@ or, click [here](https://github.com/pereconteur/Simple_SHA256_file_comparator/ar
 
 ## Mac
 
-After cloning the repository, run this command (once in the folder) to make the files executable :
+After cloning the repository, you have two options:
 
+- If you have [Python](https://www.python.org/downloads/release/python-31011/), you can run the python file with this command : 
+
+```bash
+#In 🏴󠁧󠁢󠁥󠁮󠁧󠁿
+python comparator_sha256.py
+
+#In 🇫🇷
+python comparator_sha256_fr.py
 ```
+
+- Or, run this command (once in the folder) to make the bash files executable :
+
+```bash
 chmod +x comparator_sha256_mac.sh
 chmod +x comparator_sha256_mac_fr.sh
 ```
 
 And just run : 
 
-```
+```bash
 #In 🏴󠁧󠁢󠁥󠁮󠁧󠁿
 ./comparator_sha256_mac.sh
 
-#in 🇫🇷
+#In 🇫🇷
 ./comparator_sha256_mac_fr.sh
 ```
 
@@ -66,19 +78,35 @@ And let us guide you by answering the questions asked !
 
 ## Windows
 
-Just run : 
+Once you have python, you just need to run this command :  
 
-```
+```bash
+#In 🏴󠁧󠁢󠁥󠁮󠁧󠁿
+python comparator_sha256.py
 
+#In 🇫🇷
+python comparator_sha256_fr.py
 ```
 
 And let us guide you by answering the questions asked !
 
 ## Linux
 
-After cloning the repository, run this command (once in the folder) to make the files executable :
+After cloning the repository, you have two options:
 
+- If you have [Python](https://doc.ubuntu-fr.org/python#installation), you can run the python file with this command : 
+
+```bash
+#In 🏴󠁧󠁢󠁥󠁮󠁧󠁿
+python comparator_sha256.py
+
+#In 🇫🇷
+python comparator_sha256_fr.py
 ```
+
+- Or, run this command (once in the folder) to make the bash files executable :
+
+```bash
 chmod +x comparator_sha256_linx.sh
 chmod +x comparator_sha256_linx_fr.sh
 ```
@@ -93,7 +121,7 @@ And just run :
 ./comparator_sha256_linx_fr.sh
 ```
 
-And let us guide you by answering the questions asked !
+And let us guide you by answering the questions asked ! 
 
 
 ## Follow ME ✅
@@ -113,8 +141,3 @@ For support, join the [Discord channel](https://discord.gg/xY63gyVfaR)
 
  - ![](https://img.shields.io/github/repo-size/pereconteur/Simple_SHA256_file_comparator)
  - ![](https://img.shields.io/github/last-commit/pereconteur/Simple_SHA256_file_comparator)
-
-
-##### Doc
-
-- [lowqualitybot](https://github.com/facebookresearch/llama/pull/87#issuecomment-1454237673)
