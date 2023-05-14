@@ -66,10 +66,18 @@ And let us guide you by answering the questions asked !
 
 ## Windows
 
-Just run : 
+You must have [python](https://www.python.org/downloads/release/python-31011/)
 
+Once you have it, install colorama : 
+
+```bash
+pip install colorama
 ```
 
+and run the file : 
+
+```bash
+python comparator_sha256.py
 ```
 
 And let us guide you by answering the questions asked !
