@@ -45,7 +45,14 @@ or, click [here](https://github.com/pereconteur/Simple_SHA256_file_comparator/ar
 
 ## Mac
 
-Just run : 
+After cloning the repository, run this command (once in the folder) to make the files executable :
+
+```
+chmod +x comparator_sha256_mac.sh
+chmod +x comparator_sha256_mac_fr.sh
+```
+
+And just run : 
 
 ```
 #In 🏴󠁧󠁢󠁥󠁮󠁧󠁿
@@ -69,12 +76,25 @@ And let us guide you by answering the questions asked !
 
 ## Linux
 
-Just run : 
+After cloning the repository, run this command (once in the folder) to make the files executable :
 
 ```
+chmod +x comparator_sha256_linx.sh
+chmod +x comparator_sha256_linx_fr.sh
+```
+
+And just run : 
+
+```
+#In 🏴󠁧󠁢󠁥󠁮󠁧󠁿
+./comparator_sha256_linx.sh
+
+#in 🇫🇷
+./comparator_sha256_linx_fr.sh
 ```
 
 And let us guide you by answering the questions asked !
+
 
 ## Follow ME ✅
 
