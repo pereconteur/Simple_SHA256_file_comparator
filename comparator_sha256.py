@@ -2,14 +2,41 @@ import hashlib
 import os
 import platform
 
-# Function to print a message in green
-def echo_green(msg):
-    print(f"\033[32m{msg}\033[0m")
+#For Windows
+
+if platform.system() == 'Windows':
+    import colorama
+    from colorama import init, Fore
+
+    # Initialize colors
+    init()
+
+    # Function to print a message in green
+    def echo_green(msg):
+        print(Fore.GREEN + msg + Fore.RESET)
+
+    # Function to print a message in red
+    def echo_red(msg):
+        print(Fore.RED + msg + Fore.RESET)
 
 
-# Function to print a message in red
-def echo_red(msg):
-    print(f"\033[31m{msg}\033[0m")
+    def echo_yellow(msg):
+        print(Fore.YELLOW + msg + Fore.RESET)
+
+else:
+
+    # Function to print a message in green
+    def echo_green(msg):
+        print(f"\033[32m{msg}\033[0m")
+
+
+    # Function to print a message in red
+    def echo_red(msg):
+        print(f"\033[31m{msg}\033[0m")
+
+
+    def echo_yellow(msg):
+        print(f"\033[33m{msg}\033[0m")
 
 
 # Function to calculate the SHA256 hash of a file
@@ -23,24 +50,38 @@ def sha256sum_file(file_path):
                 sha256_hash.update(data)
             return sha256_hash.hexdigest()
 
-# Function to compare two hashes
-def compare_hash(hash1, hash2):
-    if hash1 == hash2:
-        echo_green("The hashes are identical")
-    else:
-        echo_red("The hashes are different")
-
+def delimit():
+    print("")
+    print("-"*10)
+    print("")
 
 # Function to compare two hashes character by character
 def compare_hashes(hash1, hash2):
     length = len(hash1)
     result = ''
-    for i in range(length):
-        if hash1[i] == hash2[i]:
-            result += hash1[i]
+    result2 = ''
+    if len(hash1) == len(hash2):
+        for i in range(length):
+            if hash1[i] == hash2[i]:
+                result += hash1[i]
+                result2 += hash2[i]
+            else:
+                result += '\033[31m' + hash1[i] + '\033[0m'
+                result2 += '\033[31m' + hash2[i] + '\033[0m'
+        if result2 == result:
+            echo_green("The hashes are identical : ")
+            print()
+            print(result)
         else:
-            result += '\033[31m' + hash1[i] + '\033[0m'
-    print(result)
+            echo_red("The hashes are different : ")
+            print()
+            print(result)
+            print(result2)
+    else:
+        echo_red("The hashes are different : ")
+        print()
+        echo_red(hash1)
+        echo_red(hash2)
 
 #Function
 def get_file_path():
@@ -55,68 +96,87 @@ def get_file_path():
         else:
             file_path = file_path.replace("\\", "")  # Supprimer les backslashes inutiles
 
-        file_path = file_path.replace("\\", "")  # Supprimer les backslashes inutiles
-
         if os.path.isfile(file_path):
             return file_path
         else:
             print("Le fichier spécifié est introuvable. Veuillez réessayer.")
 
 
-print("What do you want to do?")
-print("1. Verify the hash of a single file")
-print("2. Compare two files")
-print("3. Compare a file with a hash")
+def main():
+    # instructions de votre programme
 
-choice = input()
+    print("What do you want to do?")
+    print("1. Verify the hash of a single file")
+    print("2. Compare two files")
+    print("3. Compare a file with a hash")
 
-if choice == "1":
-    print("Veuillez entrer le chemin complet du fichier : ")
-    file_path = get_file_path()
-    hash_value = sha256sum_file(file_path)
-    echo_green(f"The hash of the file is: {hash_value}")
-elif choice == "2":
-    print("Veuillez entrer le chemin complet du fichier 1 : ")
-    file_path1 = get_file_path()
-    hash1 = sha256sum_file(file_path1)
+    choice = input()
 
-    print("Veuillez entrer le chemin complet du fichier 2 : ")
-    file_path2 = get_file_path()
-    hash2 = sha256sum_file(file_path2)
-
-    if hash1 == hash2:
-        echo_green("The two files are identical.")
-        print(hash1)
-    else:
-        echo_red("The two files are different: ")
-        compare_hashes(hash1, hash2)
-        compare_hashes(hash2, hash1)
-elif choice == "3":
-    choice1 = input("For the first file, do you want to enter the path (P) or the hash (H)?")
-    if choice1.lower() == "p":
-        print("Enter the path of the first file:")
+    if choice == "1":
+        print("Veuillez entrer le chemin complet du fichier : ")
+        file_path = get_file_path()
+        hash_value = sha256sum_file(file_path)
+        delimit()
+        echo_yellow(os.path.basename(file_path)+" : \n")
+        echo_green(hash_value)
+        delimit()
+    elif choice == "2":
+        print("Veuillez entrer le chemin complet du fichier 1 : ")
         file_path1 = get_file_path()
         hash1 = sha256sum_file(file_path1)
-    elif choice1.lower() == "h":
-        hash1 = input("Enter the hash of the first file:")
-    else:
-        echo_red("Invalid choice")
-        exit(1)
 
-    choice2 = input("For the second file, do you want to enter the path (P) or the hash (H)?")
-    if choice2.lower() == "p":
-        print("Enter the path of the seconf file:")
+        print("Veuillez entrer le chemin complet du fichier 2 : ")
         file_path2 = get_file_path()
         hash2 = sha256sum_file(file_path2)
-    elif choice2.lower() == "h":
-        hash2 = input("Enter the hash of the second file:")
+
+        if hash1 == hash2:
+            delimit()
+            echo_green("The two files are identical.")
+            echo_yellow(os.path.basename(file_path1)+" = "+ os.path.basename(file_path2))
+            print()
+            echo_green(hash1)
+            delimit()
+        else:
+            delimit()
+            echo_red("The two files are different: ")
+            echo_yellow(os.path.basename(file_path1)+" != "+ os.path.basename(file_path2))
+            print()
+            compare_hashes(hash1, hash2)
+            delimit()
+    elif choice == "3":
+        choice1 = ""
+        while choice1.lower() != "p" and choice1.lower() != "h":
+            choice1 = input("For the first file, do you want to enter the path (P) or the hash (H)?")
+        if choice1.lower() == "p":
+            print("Enter the path of the first file:")
+            file_path1 = get_file_path()
+            hash1 = sha256sum_file(file_path1)
+        elif choice1.lower() == "h":
+            hash1 = input("Enter the hash of the first file:")
+        else:
+            echo_red("Invalid choice")
+            exit(1)
+
+        choice2 = ""
+        while choice2.lower() != "p" and choice2.lower() != "h":
+            choice2 = input("For the second file, do you want to enter the path (P) or the hash (H)?")
+        if choice2.lower() == "p":
+            print("Enter the path of the seconf file:")
+            file_path2 = get_file_path()
+            hash2 = sha256sum_file(file_path2)
+        elif choice2.lower() == "h":
+            hash2 = input("Enter the hash of the second file:")
+        else:
+            echo_red("Invalid choice")
+            exit(1)
+
+        delimit()
+        compare_hashes(hash2, hash1)
+        delimit()
     else:
         echo_red("Invalid choice")
         exit(1)
 
-    compare_hash(hash1, hash2)
-    compare_hashes(hash1, hash2)
-    compare_hashes(hash2, hash1)
-else:
-    echo_red("Invalid choice")
-    exit(1)
+if __name__ == "__main__":
+    while True:
+        main()
